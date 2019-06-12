@@ -63,6 +63,17 @@ class IdeasController < ApplicationController
   end
 
   private
+    def upvote
+      @idea = Idea.find(params[:id])
+      @idea.upvote_by current_user
+      redirect_back fallback_location: root_path
+    end
+
+    def downvote
+      @idea = Idea.find(params[:id])
+      @idea.downvote_by current_user
+      redirect_back fallback_location: root_path
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
       @idea = Idea.find(params[:id])

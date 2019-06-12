@@ -2,7 +2,7 @@
  <h1><a href="<%= @idea.content %>"><%= @idea.title %></a><br> <small>Submitted by <%= @idea.user.email %></small></h1>
 </div>
 <div class="btn-group">
- <%= link_to 'See Content', @idea.content, class: "btn btn-primary" %>
+ <%= link_to 'See content', @idea, class: "btn btn-primary" %>
 </div>
 <% if @idea.user == current_user %>
  <div class="btn-group">
@@ -10,3 +10,15 @@
   <%= link_to 'Destroy', @idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
  </div>
 <% end %>
+<div class="btn-group pull-right">
+ <%= link_to like_idea_path(@idea), method: :put, class: "btn btn-default btn-sm" do %>
+  <span class="glyphicon glyphicon-chevron-up"></span>
+  Upvote
+  <%= @idea.get_upvotes.size %>
+ <% end %>
+ <%= link_to dislike_idea_path(@idea), method: :put, class: "btn btn-default btn-sm" do %>
+  <span class="glyphicon glyphicon-chevron-down"></span>
+  Downvote
+  <%= @idea.get_downvotes.size %>
+ <% end %>
+</div>
