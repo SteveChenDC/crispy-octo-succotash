@@ -33,6 +33,11 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 gem 'acts_as_votable', '~> 0.11.1'
 
+gem 'simple_form'
+
+#so that we can use the 'div_for' method
+gem 'record_tag_helper', '~> 1.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
